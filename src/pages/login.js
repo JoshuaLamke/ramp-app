@@ -9,7 +9,7 @@ let Login = () => {
                 <div className="col-9">
                     <form onSubmit={(e) => {
                     e.preventDefault();
-                        if(e.target[0].value === 'username' && e.target[1].value === 'colv!nrunRules') {
+                        if(e.target[0].value === 'colv!nRun' && e.target[1].value === 'colv!nrunRules') {
                             setRedirect(true)
                         }
                         else{
