@@ -8,15 +8,15 @@ let Threat = (props) => {
     const [visible, setVisible] = useState(false);
     const [buttonSymbol, setButtonSymbol] = useState('+');
     const [levels, setLevels] = useState(props.levels);
-    let arr = [{
-        title: props.mitigationNames[0],
-        selected: false,
-        levels: props.mitigationLevels[props.mitigationNames[0]]
-    },{
-        title: props.mitigationNames[1],
-        selected: false,
-        levels: props.mitigationLevels[props.mitigationNames[1]]
-    }]
+    
+    let arr = []
+    for(let i = 0; i < props.mitigationNames.length; i++) {
+        arr.push({
+            title: props.mitigationNames[i],
+            selected: false,
+            levels: props.mitigationLevels[props.mitigationNames[i]]
+        })
+    }
     const [select, setSelected] = useState(arr);
     useEffect(() => {
         setLevels([...PROPSLEVELS]);
