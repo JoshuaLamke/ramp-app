@@ -57,7 +57,7 @@ let ProjectCard = (props) => {
                     </div>
                 </div>
             </div>
-            {page === 1 ? <Redirect to="/"></Redirect> : 
+            {page === 1 ? <Redirect to="/design"></Redirect> : 
             (page === 2) ? 
             <Redirect to="/fabrication"></Redirect> :
             (page === 3) ? 

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './countermeasure.css'
 import ThreatColor from '../threat-color/threat-color';
-let Countermeasure = ({threatTitle, name, levels, select, deselect}) => {
-    const [selected, setSelected] = useState(false);
+let Countermeasure = ({threatTitle, name, levels, select, deselect, selector}) => {
+    const [selected, setSelected] = useState(selector);
     let qaMetric = Math.cbrt(levels[0] * (levels[1] + levels[2] + levels[3]) / levels[4]);
     let title = `QAM Details- ${threatTitle}`
     useEffect(() => {

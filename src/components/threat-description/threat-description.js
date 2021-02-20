@@ -33,7 +33,7 @@ let Threat = (props) => {
         setLevels(arr);
         setQaMetric(Math.round(100* Math.cbrt(arr[0] * (arr[1] + arr[2] + arr[3]) / arr[4])) / 100);
         console.log(qaMetric);
-    },[select])
+    },[select,buttonSymbol])
     if(!props.mitigationNames) {
         return (<div></div>)
     }
@@ -132,7 +132,7 @@ let Threat = (props) => {
                             };
                             setSelected(arr);
                         }}
-                name={name} key={name} levels={props.mitigationLevels[name]}/>
+                name={name} key={name} selector={select[index].selected} levels={props.mitigationLevels[name]}/>
                 </div>
                 )}
             </div> 
