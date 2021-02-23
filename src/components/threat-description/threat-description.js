@@ -42,7 +42,7 @@ let Threat = (props) => {
         return (<div></div>)
     }
     return (
-        <div className="container-fluid d-flex flex-column">
+        <div className="container-fluid d-flex flex-column pt-2">
             <div className="d-flex container" id="threat-container">
                 <div className="d-flex justify-content-center align-items-center">
                     <button className="btn d-flex justify-content-center align-items-center" style={{'fontSize': '25px'}}
