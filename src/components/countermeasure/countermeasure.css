@@ -1,10 +1,12 @@
 #countermeasure-container {
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: rgb(184, 184, 184);
     box-shadow: 5px 5px 5px rgb(17, 0, 112);
-    margin-bottom: 20px;
 }
 #mitigation-info {
     padding: 5px;
-    border-top: 3px solid rgb(68, 107, 235);
+}
+.container-fluid {
+    padding: 0px;
+    margin:  0px;
 }
