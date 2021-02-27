@@ -12,8 +12,8 @@ let FabricationPage = () => {
     let mitigationNames = [[mitigationList[0].name,mitigationList[1].name],[mitigationList[1].name, mitigationList[3].name]]
     let mitigationLevels = 
     [
-        [mitigationList[1].levels, mitigationList[3].levels],
-        [mitigationList[2].levels, mitigationList[3].levels]
+        [mitigationList[0].levels, mitigationList[1].levels],
+        [mitigationList[1].levels, mitigationList[3].levels]
     ]
     return (
         <div>
