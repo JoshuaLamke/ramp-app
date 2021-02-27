@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './countermeasure.css'
 import ThreatColor from '../threat-color/threat-color';
-let Countermeasure = ({threatTitle, name, levels, select, deselect, selector}) => {
-    const [selected, setSelected] = useState(selector);
-    let qaMetric = Math.cbrt(levels[0] * (levels[1] + levels[2] + levels[3]) / levels[4]);
-    let title = `QAM Details- ${threatTitle}`
+import {toggleCheckedTrue,toggleCheckedFalse} from '../../actions/mitigationActions'
+import {useDispatch, useSelector} from 'react-redux'
+let Countermeasure = ({ name, levels, select, deselect, selectedOrNot}) => {
+    const [selected, setSelected] = useState(selectedOrNot)
+   
     useEffect(() => {
         if(selected) {
             select();
@@ -13,14 +14,16 @@ let Countermeasure = ({threatTitle, name, levels, select, deselect, selector}) =
             deselect();
         }
     },[selected])
+
     return (
         <div className="container-fluid" id="countermeasure-container">
             <div id="mitigation-info">
                 <div className=" d-flex justify-content-center align-items-center flex-wrap">
-                    <input id="checkbox" checked={selected} type="checkbox" className="mr-3" value="checkbox" onClick={(e) => {
-                                                    setSelected(!selected);
-                                                    }}/>
-                    <h4>{name}</h4>
+                    <input id="checkbox" defaultChecked={selected} type="checkbox" className="mr-auto" value="checkbox" 
+                    onClick={() => {
+                        setSelected(!selected)
+                    }}/>
+                    <h4 className="mr-auto">{name}</h4>
                 </div>
                 <div className="d-flex justify-content-around flex-wrap">
                     <div className="d-flex flex-column align-items-center">

@@ -1,10 +1,10 @@
 import './project-card.css'
 import React, {useState, useEffect} from 'react'
 import {Redirect} from 'react-router-dom'
+import ThreatColor from '../threat-color/threat-color'
 let ProjectCard = (props) => {
     const [page, setPage] = useState(0);
     const [pageType, setPageType] = useState(props.pageType);
-
     return (
         <div className="container-fluid">
             <div className="container project-card-container mt-5 py-2">

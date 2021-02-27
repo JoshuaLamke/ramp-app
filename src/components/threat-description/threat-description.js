@@ -2,59 +2,55 @@ import React, {useState, useEffect} from 'react';
 import './threat-description.css';
 import ThreatColor from '../threat-color/threat-color';
 import Countermeasure from '../countermeasure/countermeasure';
-let Threat = (props) => {
-    const PROPSLEVELS = props.levels;
-    const [qaMetric, setQaMetric] = useState(Math.round(100* Math.sqrt((Math.pow(props.levels[0],2) + Math.pow(props.levels[1],2) + Math.pow(props.levels[2],2) + Math.pow(props.levels[3],2) + Math.pow(props.levels[4],2)) / 5))/ 100);
-    const [visible, setVisible] = useState(false);
-    const [buttonSymbol, setButtonSymbol] = useState('+');
-    const [levels, setLevels] = useState(props.levels);
+import {toggleCheckedFalse,toggleCheckedTrue} from '../../actions/mitigationActions'
+import {changeThreatTotal} from '../../actions/threatActions'
+import {useSelector,useDispatch} from 'react-redux'
+let Threat = ({levels_, mitigationNames, numOfMitigations, threatName, mitigationLevels, type}) => {
+    let dispatch = useDispatch()
+    let mitigations = useSelector(state => state.mitigationReducer)
+    let mitigationsForThreat = [];
     
-    let arr = []
-    for(let i = 0; i < props.mitigationNames.length; i++) {
-        arr.push({
-            title: props.mitigationNames[i],
-            selected: false,
-            levels: props.mitigationLevels[props.mitigationNames[i]]
-        })
-    }
-    const [select, setSelected] = useState(arr);
-    useEffect(() => {
-        setLevels([...PROPSLEVELS]);
-        let arr = [...PROPSLEVELS];
-        for(let i = 0; i < select.length; i++) {
-            if(select[i].selected) {
-                for(let j = 0; j < 5; j ++) {
-                    arr[j] = Math.max(arr[j],select[i].levels[j]);
-                }
+    for(let j = 0; j < mitigations.length; j++) {
+        for(let i = 0; i < mitigationNames.length; i++) {
+            if(mitigations[j].name == mitigationNames[i]){
+                mitigationsForThreat.push(mitigations[j])
             }
         }
-        console.log('arr after loop:', arr)
-        console.log('props.levels arr:', PROPSLEVELS)
-        setLevels(arr);
-        setQaMetric(Math.round(100 * Math.sqrt((Math.pow(arr[0],2) + Math.pow(arr[1],2) + Math.pow(arr[2],2) + Math.pow(arr[3],2) + Math.pow(arr[4],2)) / 5)) / 100);
-        console.log(qaMetric);
-    },[select,buttonSymbol])
-    if(!props.mitigationNames) {
-        return (<div></div>)
     }
+    const PROPSLEVELS = levels_;
+    const [qaMetric, setQaMetric] = useState(0);
+    const [visible, setVisible] = useState(false);
+    const [buttonSymbol, setButtonSymbol] = useState('+');
+    const [levels, setLevels] = useState(levels_);
+    const [selected, setSelected] = useState(true);
 
-    if(props.numOfMitigations != props.mitigationNames.length) {
-        return (<div></div>)
-    }
+    useEffect(() => {
+        let arr = PROPSLEVELS.map(e => e);
+        console.log("initial: " + arr)
+        for(let i = 0; i < mitigationsForThreat.length; i++) {
+            for(let j = 0; j < 5; j++) {
+                if(arr[j] < mitigationsForThreat[i].levels[j] && mitigationsForThreat[i].checked) {
+                    arr[j] = mitigationsForThreat[i].levels[j];
+                } 
+            }
+        }
+        console.log(arr)
+        setQaMetric(Math.round(100* Math.sqrt((Math.pow(arr[0],2) + Math.pow(arr[1],2) + Math.pow(arr[2],2) + Math.pow(arr[3],2) + Math.pow(arr[4],2)) / 5))/ 100)
+        dispatch(changeThreatTotal({
+            name: threatName,
+            total: Math.round(100* Math.sqrt((Math.pow(arr[0],2) + Math.pow(arr[1],2) + Math.pow(arr[2],2) + Math.pow(arr[3],2) + Math.pow(arr[4],2)) / 5))/ 100,
+            levels: arr
+        }))
+        setLevels(arr)
+    },[selected])
+
     return (
         <div className="container-fluid d-flex flex-column pt-2">
             <div className="d-flex container" id="threat-container">
                 <div className="d-flex justify-content-center align-items-center">
                     <button className="btn d-flex justify-content-center align-items-center" style={{'fontSize': '25px'}}
                     onClick={
-                        (e) => {
-                            e.preventDefault();
-                            if(props.mitigationNames === undefined) {
-                                return;
-                            }
-                            else if(props.numOfMitigations == 0 || props.mitigationNames.length == 0) {
-                                return;
-                            }
+                        () => {
                             setVisible(!visible);
                             if(!visible) {
                                 setButtonSymbol('-');
@@ -68,13 +64,13 @@ let Threat = (props) => {
                     <ThreatColor level={qaMetric}/>
                 </div>
                 <div  style={{'width': '100%'}} className="d-flex justify-content-start align-items-center ml-2">
-                    <h6>{props.threatName}</h6>
+                    <h6>{threatName}</h6>
                 </div>
                 <div style={{'position': 'relative','width': '100%'}}>
-                    <h6 style={{'position': 'absolute', 'right': '100px', 'top': '12px'}}>{props.numOfMitigations}</h6>
+                    <h6 style={{'position': 'absolute', 'right': '100px', 'top': '12px'}}>{numOfMitigations}</h6>
                 </div>
             </div>
-            {visible && props.mitigationNames.length == props.numOfMitigations ? 
+            {visible ? 
             <div className="container">
                 <div className="container-fluid d-flex flex-column" style={{'background': 'rgb(184, 184, 184)', 'boxShadow': '5px 5px 5px rgb(17, 0, 112)'}}>
                     <h4 className="align-self-center">Current Score</h4>
@@ -101,38 +97,28 @@ let Threat = (props) => {
                         </div>
                     </div>
                 </div>
-                {props.mitigationNames.map((name, index) => 
+                {mitigationNames.map((name, index) => 
                 <div className="d-flex flex-column align-items-center">
-                    <Countermeasure threatTitle={props.threatName} select={() => {
-                        let i;
-                        for(i = 0; i < select.length; i++) {
-                            if(select[i].title == name) {
-                                break;
-                            }
-                        }
-                        let arr = [...select]
-                        arr[i] = {
-                            ...select[i],
-                            selected: true
-                        };
-                        setSelected(arr);
-                    }} 
-                    deselect={
+                    <Countermeasure name={name} key={index} select={
                         () => {
-                            let i;
-                            for(i = 0; i < select.length; i++) {
-                                if(select[i].title == name) {
-                                    break;
-                                }
-                            }
-                            let arr = [...select]
-                            arr[i] = {
-                                ...select[i],
-                                selected: false
-                            };
-                            setSelected(arr);
-                        }}
-                name={name} key={name} selector={select[index].selected} levels={props.mitigationLevels[name]}/>
+                            dispatch(toggleCheckedTrue({
+                                name: name,
+                                levels: mitigationLevels[index],
+                                checked: true
+                            }));
+                            setSelected(!selected);
+                        }
+                    } deselect= {
+                        () => {
+                            dispatch(toggleCheckedFalse({
+                                name: name,
+                                levels: mitigationLevels[index],
+                                checked: false
+                            }));
+                            setSelected(!selected);
+                        }
+                    }
+                    levels={mitigationLevels[index]} selectedOrNot={mitigationsForThreat[index].checked}/>
                 </div>
                 )}
             </div> 
