@@ -1,3 +1,4 @@
+import './design-fab-assembly-page.css'
 import ProjectCard from '../components/project-card/project-card'
 import Threat from '../components/threat-description/threat-description'
 import {useSelector} from 'react-redux'

@@ -1,0 +1,7 @@
+#reset-button:hover {
+    transform: scale(1.1);
+    transition: all ease 1s;
+}
+#reset-button {
+    background: rgb(41, 163, 129);
+}

@@ -1,7 +1,6 @@
-export const initializeMitigations = (payload) => {
+export const initializeMitigations = () => {
     return {
-        type: 'INITIAL_MITIGATION_STATE',
-        payload
+        type: 'INITIAL_MITIGATION_STATE'
     }
 }
 export const toggleCheckedTrue = (payload) => {

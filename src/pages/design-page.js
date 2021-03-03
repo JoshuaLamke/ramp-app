@@ -1,7 +1,7 @@
+import './design-fab-assembly-page.css'
 import ProjectCard from '../components/project-card/project-card'
 import Threat from '../components/threat-description/threat-description'
 import {useSelector} from 'react-redux'
-import {useEffect, useState} from 'react'
 let DesignPage = () => {
     let threats = useSelector(state => state.threatReducer)
     let arr = []
@@ -18,6 +18,7 @@ let DesignPage = () => {
     ]
     return (
         <div>
+            
             <ProjectCard pageType="build" />
             <div className="container-fluid pt-4">
                 <div className="container d-flex">
@@ -29,7 +30,7 @@ let DesignPage = () => {
                     </div>
                 </div>
                 {arr.map((threat,index) => {
-                    return <Threat threatName={threat.name} key={threat.name}  numOfMitigations={threat.mitigationCount} mitigationNames={mitigationNames[index]} levels_={threat.initialLevels} mitigationLevels={mitigationLevels[index]}/>
+                    return <Threat id='' threatName={threat.name} key={threat.name}  numOfMitigations={threat.mitigationCount} mitigationNames={mitigationNames[index]} levels_={threat.initialLevels} mitigationLevels={mitigationLevels[index]}/>
                 })}                                                                                                                                                                                                                                                                                           
             </div>
         </div>

@@ -1,7 +1,6 @@
-export const initializeThreats = (payload) => {
+export const initializeThreats = () => {
     return {
-        type: 'INITIAL_THREAT_STATE',
-        payload
+        type: 'INITIAL_THREAT_STATE'
     }
 }
 export const changeThreatTotal = (payload) => {
@@ -10,3 +9,4 @@ export const changeThreatTotal = (payload) => {
         payload
     }
 }
+

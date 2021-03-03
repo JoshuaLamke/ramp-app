@@ -1,0 +1,14 @@
+
+@media Screen and (max-width: 500px) {
+    #mitigations-header {
+        display: flex!important;
+        justify-content: flex-end!important;
+        position: unset!important;
+        border-left: 1px solid black;
+    }
+}
+@media Screen and (max-width: 400px) {
+    * {
+        font-size: 10px;
+    }
+}

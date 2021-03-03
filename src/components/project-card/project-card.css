@@ -1,16 +1,20 @@
 .project-subcard {
     border-radius: 10px;
-    background: rgb(235, 229, 229);
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(32, 122, 97);
 }
 .project-subcard:hover {
     transform: scale(1.025);
     transition-duration: 0.5s;
     cursor: pointer;
-    background: rgb(141, 141, 228)!important;
+    background: rgb(32, 122, 97)!important;
 }
 .project-card-container {
     border: 1px solid black;
     box-shadow: 5px 5px 8px;
     width: 90%;
+}
+@media Screen and (max-width: 992px) {
+    #project-subcard {
+        margin-bottom: 10px;
+    }
 }

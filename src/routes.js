@@ -8,6 +8,7 @@ import LoginPage from './pages/login'
 import DesignPage from './pages/design-page'
 import FabricationPage from './pages/fabrication-page'
 import AssemblyPage from './pages/assembly-page'
+import AdminPage from './pages/admin-page/admin-page'
 let Routes = () => {
     return (
         <div>
@@ -17,6 +18,7 @@ let Routes = () => {
               <Route exact path="/design" component={DesignPage} />
               <Route exact path="/fabrication" component={FabricationPage} />
               <Route exact path="/assembly-and-test" component={AssemblyPage} />
+              <Route exact path="/admin" component={AdminPage} />
             </Switch>
           </Router>
         </div>

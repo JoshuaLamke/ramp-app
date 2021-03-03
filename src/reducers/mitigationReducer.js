@@ -6,6 +6,8 @@ let initialState = [
 ]
 const mitigationReducer = (state = initialState, action) => {
     switch(action.type) {
+        case 'INITIAL_MITIGATION_STATE':
+            return [...initialState];
         case 'TOGGLE_MITIGATION_CHECKED_TRUE':
             return state.map((item) => {
                 if (item.name == action.payload.name) {

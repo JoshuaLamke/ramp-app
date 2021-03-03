@@ -3,26 +3,44 @@ import './countermeasure.css'
 import ThreatColor from '../threat-color/threat-color';
 import {toggleCheckedTrue,toggleCheckedFalse} from '../../actions/mitigationActions'
 import {useDispatch, useSelector} from 'react-redux'
-let Countermeasure = ({ name, levels, select, deselect, selectedOrNot}) => {
-    const [selected, setSelected] = useState(selectedOrNot)
-   
+let Countermeasure = ({ name, levels, select, deselect}) => {
+    let mitigations = useSelector(state => state.mitigationReducer)
+    const dispatch = useDispatch()
+    let selectedOrNot;
+    let i;
+    for(i = 0; i < mitigations.length; i++) {
+        if(mitigations[i].name == name) {
+            selectedOrNot = mitigations[i].checked;
+            break;
+        }
+    }
+    const [selected, setSelected] = useState(selectedOrNot);
     useEffect(() => {
-        if(selected) {
-            select();
-        }
-        else {
-            deselect();
-        }
-    },[selected])
+        setSelected(mitigations[i].checked);
+    },[mitigations])
 
     return (
         <div className="container-fluid" id="countermeasure-container">
             <div id="mitigation-info">
                 <div className=" d-flex justify-content-center align-items-center flex-wrap">
-                    <input id="checkbox" defaultChecked={selected} type="checkbox" className="mr-auto" value="checkbox" 
-                    onClick={() => {
-                        setSelected(!selected)
-                    }}/>
+                    <input id="checkbox" onChange={() => {
+                        if(selected) {
+                            dispatch(toggleCheckedFalse({
+                                name: name,
+                                levels,
+                                checked: false
+                            }));
+                            deselect();
+                        }
+                        else {
+                            dispatch(toggleCheckedTrue({
+                                name: name,
+                                levels,
+                                checked: true
+                            }));
+                            select();
+                        }
+                    }} checked={selected} type="checkbox" className="mr-auto btn btn-outline-success" value="checkbox" />
                     <h4 className="mr-auto">{name}</h4>
                 </div>
                 <div className="d-flex justify-content-around flex-wrap">
