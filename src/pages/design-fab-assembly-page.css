@@ -1,4 +1,10 @@
-
+#admin-link:hover {
+    transform: scale(1.05);
+    transition: all 1s ease;
+}
+#admin-link-container {
+    text-decoration: none;
+}
 @media Screen and (max-width: 500px) {
     #mitigations-header {
         display: flex!important;

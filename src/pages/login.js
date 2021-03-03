@@ -23,7 +23,7 @@ let Login = () => {
                         <input type="text" className="form-control" placeholder="password"/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" className="form-control btn btn-dark" />
+                        <input type="submit" className="form-control btn" style={{'background': 'rgb(32, 122, 97)'}} />
                     </div>
                     </form>
                 </div>

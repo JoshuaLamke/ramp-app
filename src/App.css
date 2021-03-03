@@ -2,13 +2,6 @@ body {
     margin-bottom: 100px;
     background: rgb(93, 226, 189)
 }
-#admin-link:hover {
-    transform: scale(1.05);
-    transition: all 1s ease;
-}
-#admin-link-container {
-    text-decoration: none;
-}
 #colvin-run-website-link:hover {
     transform: scale(1.05);
     transition: ease all 1s;
