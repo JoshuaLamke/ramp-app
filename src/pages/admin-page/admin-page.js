@@ -9,7 +9,7 @@ let AdminPage = () => {
             <a onClick={() => {setToBuild(true)}}>
                 <button id="admin-back-button" className="btn btn-large mt-5" >Back To App</button>
             </a>
-            {toBuild ? <Redirect to='/build'></Redirect>: null}
+            {toBuild ? <Redirect to='/design'></Redirect>: null}
         </div>
 
     )
