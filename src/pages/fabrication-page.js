@@ -2,8 +2,11 @@ import './design-fab-assembly-page.css'
 import ProjectCard from '../components/project-card/project-card'
 import Threat from '../components/threat-description/threat-description'
 import {useSelector} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+import {useState} from 'react'
 import logo from '../images/cRunLogo.png'
 let FabricationPage = () => {
+    const [toAdmin, setToAdmin] = useState(false);
     let threats = useSelector(state => state.threatReducer)
     let arr = []
     for(let i = 3; i < 5; i++) {
@@ -20,12 +23,13 @@ let FabricationPage = () => {
     return (
         <div>
             <div className="d-flex justify-content-end pr-5 mt-3 align-items-center">
-                <a href="/admin" id="admin-link-container">
-                    <div className="d-flex justify-content-center align-items-center pt-1 px-1" id="admin-link" style={{'borderBottom': '3px solid rgb(32, 122, 97)'}}>
-                        <h4 className="pr-2" style={{'color': 'black','fontSize': '40px'}}><i>Admin Page:</i></h4>
-                        <img src={logo} alt="colvin run logo" style={{"width": "45px", "height": "45px"}}/>
-                    </div>
-                </a>
+                <div className="d-flex justify-content-center align-items-center pt-1 px-1" id="admin-link" style={{'borderBottom': '3px solid rgb(32, 122, 97)'}} onClick={() => {
+                    console.log('in here')
+                    setToAdmin(true);
+                }}>
+                    <h4 className="pr-2" style={{'color': 'black','fontSize': '40px'}}><i>Admin Page:</i></h4>
+                    <img src={logo} alt="colvin run logo" style={{"width": "45px", "height": "45px"}}/>
+                </div>
             </div>
             <ProjectCard pageType="fabrication"/>
             <div className="container-fluid pt-4">
@@ -41,6 +45,7 @@ let FabricationPage = () => {
                     return <Threat threatName={threat.name} key={threat.name} numOfMitigations={threat.mitigationCount} mitigationNames={mitigationNames[index]} levels_={threat.initialLevels} mitigationLevels={mitigationLevels[index]}/>
                 })}                                                                                                                                                                                                                                                                                           
             </div>
+            {toAdmin ? <Redirect to="/admin"></Redirect> : null}
         </div>
     )
 }

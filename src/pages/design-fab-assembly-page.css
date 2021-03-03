@@ -1,9 +1,7 @@
 #admin-link:hover {
     transform: scale(1.05);
     transition: all 1s ease;
-}
-#admin-link-container {
-    text-decoration: none;
+    cursor: pointer;
 }
 @media Screen and (max-width: 500px) {
     #mitigations-header {
