@@ -68,7 +68,7 @@ let ProjectCard = (props) => {
                         <h1>Falcon</h1>
                         <p>Cortex M0 design for embedded controllers and intelligent sensors</p>
                     </div>
-                    <div className="d-flex flex-row flex-wrap" style={{'height': '50px'}}>
+                    <div className="d-flex flex-row" id="buttons-container" style={{'height': '50px'}}>
                         <button className="btn mr-3 d-flex justify-content-center align-items-center" id="admin-link" style={{'background': 'rgb(41, 163, 129)'}} onClick={() => {
                                 console.log('in here')
                                 setToAdmin(true);
