@@ -64,11 +64,11 @@ let ProjectCard = (props) => {
         <div className="container-fluid">
             <div className="container project-card-container mt-5 py-2" id="project-card-container">
                 <div className="d-flex justify-content-between">
-                    <div className="row d-flex flex-column pl-3">
+                    <div className="row d-flex flex-column pl-3 mr-3">
                         <h1>Falcon</h1>
                         <p>Cortex M0 design for embedded controllers and intelligent sensors</p>
                     </div>
-                    <div className="d-flex" style={{'height': '40px'}}>
+                    <div className="d-flex flex-row flex-wrap" style={{'height': '50px'}}>
                         <button className="btn mr-3 d-flex justify-content-center align-items-center" id="admin-link" style={{'background': 'rgb(41, 163, 129)'}} onClick={() => {
                                 console.log('in here')
                                 setToAdmin(true);
@@ -100,7 +100,7 @@ let ProjectCard = (props) => {
                                 <p>Score</p>
                                 <ThreatColor level={minTotalDesign}/>
                             </div>
-                            <div className="d-flex justify-content-between" id="alerted-text" onMouseEnter={() => {console.log(alerted); setAlerted(true);}} onClick={() => {console.log(alerted); setAlerted(true);}}>
+                            <div className="d-flex justify-content-between" id="alerted-text" onMouseEnter={() => {setAlerted(true);}} onClick={() => {setAlerted(true);}}>
                                 <p style={{'color': 'orange'}}>Alerts</p>
                                 <ThreatColor level={3} color='red'/>
                             </div>
