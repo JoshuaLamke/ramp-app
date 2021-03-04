@@ -11,7 +11,7 @@
         border-left: 1px solid black;
     }
 }
-@media Screen and (max-width: 400px) {
+@media Screen and (max-width: 438px) {
     * {
         font-size: 10px;
     }

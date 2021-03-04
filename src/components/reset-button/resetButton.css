@@ -1,6 +1,14 @@
 #reset-button:hover {
     transform: scale(1.1);
-    transition: all ease 1s;
+    transition: all ease .5s;
+    background-color: rgb(32, 122, 97);
+    color: navy;
+}
+#admin-link:hover {
+    transform: scale(1.1);
+    transition: all ease .5s;
+    background-color: rgb(32, 122, 97);
+    color: navy;
 }
 #reset-button {
     background: rgb(41, 163, 129);

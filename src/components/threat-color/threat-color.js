@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 let ThreatColor = (props) => {
+
     const [threatColor, setThreatColor] = useState('white');
     const [level, setLevel] = useState(props.level);
     let width = '50px'
@@ -19,6 +20,9 @@ let ThreatColor = (props) => {
         }
         else {
             setThreatColor('green');
+        }
+        if(props.color) {
+            setThreatColor(props.color);
         }
     }, [props.level, level])
     return (

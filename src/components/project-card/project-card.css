@@ -2,16 +2,35 @@
     border-radius: 10px;
     border: 1px solid rgb(32, 122, 97);
 }
+#project-card-container{
+    background-color: rgb(221, 217, 217);
+}
 .project-subcard:hover {
     transform: scale(1.025);
     transition-duration: 0.5s;
     cursor: pointer;
     background: rgb(32, 122, 97)!important;
+    color: navy!important;
 }
 .project-card-container {
     border: 1px solid black;
-    box-shadow: 5px 5px 8px;
+    box-shadow: 5px 5px 15px 8px;
     width: 90%;
+}
+.modal-backdrop {
+    background-color: rgb(0, 0, 0);
+}
+.close-button-modal {
+    background-color: black!important;
+    color: antiquewhite!important;
+}
+.modal-content {
+    background-color: rgb(240, 110, 110);
+}
+#alerted-text:hover {
+    color: red;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 @media Screen and (max-width: 992px) {
     #project-subcard {
