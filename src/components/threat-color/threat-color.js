@@ -26,7 +26,7 @@ let ThreatColor = (props) => {
         }
     }, [props.level, level])
     return (
-        <div className="d-flex justify-content-center align-items-center" id="threat-rating" style={{'backgroundImage': `linear-gradient(to right, ${threatColor} 0%, rgb(255, 255, 255) 20%)`,'width': width,'height': height}}>
+        <div className="d-flex justify-content-center align-items-center" id="threat-rating" style={{'backgroundImage': `linear-gradient(to right, ${threatColor} 0%, rgb(255, 255, 255) 20%)`,'width': width,'height': height,'color': 'black'}}>
             {props.level}
         </div>
     )

@@ -83,7 +83,7 @@ let ProjectCard = (props) => {
                         <h3>Threat Total:</h3>
                         <ThreatColor level={minTotal} size={{width: '50%', height: '100%'}}/>
                     </div>
-                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='build') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='build') ? 'navy' : 'rgb(0,0,0)','transform': (pageType==='build') ?'scale(1.0)': ''}}
+                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='build') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='build') ? 'white' : 'rgb(0,0,0)','transform': (pageType==='build') ?'scale(1.0)': ''}}
                     onClick=
                     {
                         (e) => {
@@ -106,7 +106,7 @@ let ProjectCard = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='fabrication') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='fabrication') ? 'navy' : 'rgb(0,0,0)','transform': (pageType==='fabrication') ?'scale(1.0)': '' }}
+                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='fabrication') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='fabrication') ? 'white' : 'rgb(0,0,0)','transform': (pageType==='fabrication') ?'scale(1.0)': '' }}
                     onClick=
                     {
                         (e) => {
@@ -129,7 +129,7 @@ let ProjectCard = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='assembly') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='assembly') ? 'navy' : 'rgb(0,0,0)', 'transform': (pageType==='assembly') ?'scale(1.0)': ''}}
+                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='assembly') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='assembly') ? 'white' : 'rgb(0,0,0)', 'transform': (pageType==='assembly') ?'scale(1.0)': ''}}
                     onClick=
                     {
                         (e) => {
