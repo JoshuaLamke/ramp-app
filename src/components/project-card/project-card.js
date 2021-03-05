@@ -101,7 +101,7 @@ let ProjectCard = (props) => {
                                 <ThreatColor level={minTotalDesign}/>
                             </div>
                             <div className="d-flex justify-content-between" id="alerted-text" /*onMouseEnter={() => {setAlerted(true);}}*/ onClick={() => {setAlerted(true);}}>
-                                <p className="pr-1" style={{'color': 'orange'}}>Alerts</p>
+                                <p className="pr-1" style={{'color': 'orange'}}><u>Alerts</u></p>
                                 <ThreatColor level={3} color='red'/>
                             </div>
                         </div>
