@@ -36,6 +36,7 @@
 #alerted-text:hover {
     color: red;
     cursor: pointer;
+    transform: scale(1.025);
 }
 @media Screen and (max-width: 780px) {
     
