@@ -63,12 +63,12 @@ let ProjectCard = (props) => {
     return (
         <div className="container-fluid">
             <div className="container project-card-container mt-5 py-2" id="project-card-container">
-                <div className="d-flex justify-content-between">
-                    <div className="row d-flex flex-column pl-3 mr-3">
+                <div className="d-flex justify-content-between flex-md-row flex-column align-items-start-md align-items-center">
+                    <div className="row d-flex flex-column pl-3 mr-3 align-items-center-lg">
                         <h1>Falcon</h1>
                         <p>Cortex M0 design for embedded controllers and intelligent sensors</p>
                     </div>
-                    <div className="d-flex flex-row" id="buttons-container" style={{'height': '50px'}}>
+                    <div className="d-flex flex-row mb-3" id="buttons-container" style={{'height': '50px'}}>
                         <button className="btn mr-3 d-flex justify-content-center align-items-center" id="admin-link" style={{'background': 'rgb(41, 163, 129)'}} onClick={() => {
                                 console.log('in here')
                                 setToAdmin(true);
@@ -78,12 +78,12 @@ let ProjectCard = (props) => {
                         <ResetButton />
                     </div>
                 </div>
-                <div className="row d-flex flex-column flex-lg-row justify-content-center align-items-center">
-                    <div className="d-flex flex-fill flex-column align-items-center pb-2">
+                <div className="row d-flex flex-column flex-md-row justify-content-center align-items-center">
+                    <div className="d-flex flex-column align-items-center pb-2" id="threat-total">
                         <h3>Threat Total:</h3>
                         <ThreatColor level={minTotal} size={{width: '50%', height: '100%'}}/>
                     </div>
-                    <div className="col-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='build') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='build') ? 'navy' : 'rgb(0,0,0)','transform': (pageType==='build') ?'scale(1.0)': ''}}
+                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='build') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='build') ? 'navy' : 'rgb(0,0,0)','transform': (pageType==='build') ?'scale(1.0)': ''}}
                     onClick=
                     {
                         (e) => {
@@ -97,16 +97,16 @@ let ProjectCard = (props) => {
                         <p style={{'fontSize': '15px'}}><b>Design</b></p>
                         <div className="d-flex flex-column justify-content-between">
                             <div className="d-flex justify-content-between">
-                                <p>Score</p>
+                                <p className="pr-1">Score</p>
                                 <ThreatColor level={minTotalDesign}/>
                             </div>
                             <div className="d-flex justify-content-between" id="alerted-text" onMouseEnter={() => {setAlerted(true);}} onClick={() => {setAlerted(true);}}>
-                                <p style={{'color': 'orange'}}>Alerts</p>
+                                <p className="pr-1" style={{'color': 'orange'}}>Alerts</p>
                                 <ThreatColor level={3} color='red'/>
                             </div>
                         </div>
                     </div>
-                    <div className="col-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='fabrication') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='fabrication') ? 'navy' : 'rgb(0,0,0)','transform': (pageType==='fabrication') ?'scale(1.0)': '' }}
+                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='fabrication') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='fabrication') ? 'navy' : 'rgb(0,0,0)','transform': (pageType==='fabrication') ?'scale(1.0)': '' }}
                     onClick=
                     {
                         (e) => {
@@ -120,16 +120,16 @@ let ProjectCard = (props) => {
                         <p style={{'fontSize': '15px'}}><b>Fabrication</b></p>
                         <div className="d-flex flex-column justify-content-between">
                             <div className="d-flex justify-content-between">
-                                <p>Score</p>
+                                <p className="pr-1">Score</p>
                                 <ThreatColor level={minTotalFab}/>
                             </div>
                             <div className="d-flex justify-content-between">
-                                <p>Alerts</p>
+                                <p className="pr-1">Alerts</p>
                                 <ThreatColor level={0} color='green'/>
                             </div>
                         </div>
                     </div>
-                    <div className="col-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='assembly') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='assembly') ? 'navy' : 'rgb(0,0,0)', 'transform': (pageType==='assembly') ?'scale(1.0)': ''}}
+                    <div className="col-9 col-sm-6 col-md-5 mb-2 col-lg-2 d-flex flex-column project-subcard py-2 mx-5" style={{background: (pageType==='assembly') ? 'rgb(32, 122, 97)' : 'rgb(171, 219, 206)' ,'color':(pageType==='assembly') ? 'navy' : 'rgb(0,0,0)', 'transform': (pageType==='assembly') ?'scale(1.0)': ''}}
                     onClick=
                     {
                         (e) => {
@@ -143,11 +143,11 @@ let ProjectCard = (props) => {
                         <p style={{'fontSize': '15px'}}><b>Assembly & Test</b></p>
                         <div className="d-flex flex-column justify-content-between">
                             <div className="d-flex justify-content-between">
-                                <p>Score</p>
+                                <p className="pr-1">Score</p>
                                 <ThreatColor level={minTotalAssembly}/>
                             </div>
                             <div className="d-flex justify-content-between">
-                                <p>Alerts</p>
+                                <p className="pr-1">Alerts</p>
                                 <ThreatColor level={0} color='green'/>
                             </div>
                         </div>

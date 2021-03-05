@@ -38,12 +38,14 @@
     transform: scale(1.1);
     cursor: pointer;
 }
-
+@media Screen and (max-width: 780px) {
+    
+}
 @media Screen and (max-width: 992px) {
     #project-subcard {
         margin-bottom: 10px;
     }
-    #buttons-container {
-        height: 40px!important;
+    #threat-total {
+        width: 100%;
     }
 }

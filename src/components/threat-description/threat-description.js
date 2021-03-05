@@ -62,7 +62,7 @@ let Threat = ({levels_, mitigationNames, numOfMitigations, threatName, mitigatio
                     <ThreatColor level={qaMetric}/>
                 </div>
                 <div style={{'width': '100%'}} className="d-flex justify-content-start align-items-center ml-2 pr-1">
-                    <h6>{threatName}</h6>
+                    <h6 className="fs-10">{threatName}</h6>
                 </div>
                 <div style={{'position': 'relative','width': '100%'}} id="num-mitigations">
                     <h6 style={{'position': 'absolute', 'right': '100px', 'top': '12px'}} id="num-mitigations-number">{numOfMitigations}</h6>

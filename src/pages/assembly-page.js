@@ -21,10 +21,10 @@ let AssemblyPage = () => {
             <div className="container-fluid pt-4">
                 <div className="container d-flex">
                     <div className="pb-2">
-                        <h5>Real Time Score For Vulnerabilities / Threats</h5>
+                        <h5 className="fs-10">Real Time Score For Vulnerabilities / Threats</h5>
                     </div>
                     <div style={{'position': 'relative', 'width': '100%'}} id="mitigations-header">
-                        <h5 style={{'position': 'absolute', 'right': '50px'}}>Countermeasures</h5>
+                        <h5 className="fs-10" style={{'position': 'absolute', 'right': '50px'}}>Countermeasures</h5>
                     </div>
                 </div>
                 {arr.map((threat,index) => {
