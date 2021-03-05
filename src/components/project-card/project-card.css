@@ -25,6 +25,7 @@
     transition: all 1s ease;
     cursor: pointer;
     background:rgb(32, 122, 97)!important;
+    color:white;
 }
 .close-button-modal {
     background-color: black!important;
