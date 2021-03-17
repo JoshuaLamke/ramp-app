@@ -17,6 +17,7 @@ let ProjectCard = (props) => {
     let ss = today.getSeconds()
     today = mm + '/' + dd + '/' + yyyy + ' at ' + hh + ':' + min + ':' + ss ;
     const [toAdmin, setToAdmin] = useState(false);
+    const [toAlerts, setToAlerts] = useState(false);
     const [page, setPage] = useState(0);
     const [alerted, setAlerted] = useState(false);
     const [pageType, setPageType] = useState(props.pageType);
@@ -69,11 +70,15 @@ let ProjectCard = (props) => {
                         <p>Cortex M0 design for embedded controllers and intelligent sensors</p>
                     </div>
                     <div className="d-flex flex-row mb-3" id="buttons-container" style={{'height': '50px'}}>
-                        <button className="btn mr-3 d-flex justify-content-center align-items-center" id="admin-link" style={{'background': 'rgb(41, 163, 129)'}} onClick={() => {
-                                console.log('in here')
+                        <button className="btn mr-3 d-flex justify-content-center align-items-center admin-link" style={{'background': 'rgb(41, 163, 129)'}} onClick={() => {
+                                setToAlerts(true);
+                            }}>
+                            Alerts 
+                        </button>
+                        <button className="btn mr-3 d-flex justify-content-center align-items-center admin-link"  style={{'background': 'rgb(41, 163, 129)'}} onClick={() => {
                                 setToAdmin(true);
                             }}>
-                            Admin Page <img src={logo} style={{'height': '35px','width': '35px'}}/>
+                            Admin Page
                         </button>
                         <ResetButton />
                     </div>
@@ -161,6 +166,7 @@ let ProjectCard = (props) => {
             <Redirect to="assembly-and-test"></Redirect>:
             ''}
             {toAdmin ? <Redirect to="/admin"></Redirect> : null}
+            {toAlerts ? <Redirect to="/alerts"/> : null}
             <Modal  show={alerted} onHide={() => {setAlerted(false)}} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
                 <Modal.Header className="d-flex justify-content-center">
                     <Modal.Title style={{'fontFamily': 'Courier Prime'}}>

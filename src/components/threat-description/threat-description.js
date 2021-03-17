@@ -4,17 +4,15 @@ import ThreatColor from '../threat-color/threat-color';
 import Countermeasure from '../countermeasure/countermeasure';
 import {changeThreatTotal} from '../../actions/threatActions'
 import {useSelector,useDispatch} from 'react-redux'
-let Threat = ({levels_, mitigationNames, numOfMitigations, threatName, mitigationLevels, id}) => {
+let Threat = ({levels_, numOfMitigations, threatName, id}) => {
     let dispatch = useDispatch()
+    let threats = useSelector(state => state.threatReducer)
+    let threat = threats.filter(threat => threat.name == threatName)
+    console.log(threat)
     let mitigations = useSelector(state => state.mitigationReducer)
-
     let mitigationsForThreat = [];
-    for(let j = 0; j < mitigations.length; j++) {
-        for(let i = 0; i < mitigationNames.length; i++) {
-            if(mitigations[j].name == mitigationNames[i]){
-                mitigationsForThreat.push(mitigations[j])
-            }
-        }
+    for(let j = 0; j < threat[0].mitigations.length; j++) {
+        mitigationsForThreat.push(mitigations[threat[0].mitigations[j]])
     }
     const PROPSLEVELS = levels_;
     const [qaMetric, setQaMetric] = useState(0);
@@ -78,7 +76,7 @@ let Threat = ({levels_, mitigationNames, numOfMitigations, threatName, mitigatio
                             <ThreatColor level={levels[0]}/>
                         </div>
                         <div className="d-flex flex-column align-items-center">
-                            <h6>Detectability</h6>
+                            <h6>Technology</h6>
                             <ThreatColor level={levels[1]}/>
                         </div>
                         <div className="d-flex flex-column align-items-center">
@@ -86,18 +84,18 @@ let Threat = ({levels_, mitigationNames, numOfMitigations, threatName, mitigatio
                             <ThreatColor level={levels[2]}/>
                         </div>
                         <div className="d-flex flex-column align-items-center">
-                            <h6>Targetability</h6>
+                            <h6>Value of Effect</h6>
                             <ThreatColor level={levels[3]}/>
                         </div>
                         <div className="d-flex flex-column align-items-center">
-                            <h6>Technology</h6>
+                            <h6>Targetability</h6>
                             <ThreatColor level={levels[4]}/>
                         </div>
                     </div>
                 </div>
-                {mitigationNames.map((name, index) => 
+                {mitigationsForThreat.map((mitigation, index) => 
                 <div className="d-flex flex-column align-items-center">
-                    <Countermeasure name={name} key={index} select={
+                    <Countermeasure name={mitigation.name} key={index} select={
                         () => {
                             setSelected(!selected);
                         }
@@ -106,7 +104,7 @@ let Threat = ({levels_, mitigationNames, numOfMitigations, threatName, mitigatio
                             setSelected(!selected);
                         }
                     }
-                    levels={mitigationLevels[index]} selectedOrNot={mitigationsForThreat[index].checked}/>
+                    levels={mitigation.levels} selectedOrNot={mitigation.checked}/>
                 </div>
                 )}
             </div> 

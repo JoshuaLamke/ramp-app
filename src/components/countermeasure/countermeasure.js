@@ -49,7 +49,7 @@ let Countermeasure = ({ name, levels, select, deselect}) => {
                         <ThreatColor level={levels[0]}/>
                     </div>
                     <div className="d-flex flex-column align-items-center">
-                        <h6>Detectability</h6>
+                        <h6>Technology</h6>
                         <ThreatColor level={levels[1]}/>
                     </div>
                     <div className="d-flex flex-column align-items-center">
@@ -57,11 +57,11 @@ let Countermeasure = ({ name, levels, select, deselect}) => {
                         <ThreatColor level={levels[2]}/>
                     </div>
                     <div className="d-flex flex-column align-items-center">
-                        <h6>Targetability</h6>
+                        <h6>Value of Effect</h6>
                         <ThreatColor level={levels[3]}/>
                     </div>
                     <div className="d-flex flex-column align-items-center">
-                        <h6>Technology</h6>
+                        <h6>Targetability</h6>
                         <ThreatColor level={levels[4]}/>
                     </div>
                 </div>

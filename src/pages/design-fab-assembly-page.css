@@ -10,4 +10,17 @@
     .fs-10{
         font-size: 13px!important;
     }
+    #mitigations-header {
+        position: unset!important;
+    }
+    .word-break {
+        position: unset!important;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+}
+@media Screen and (max-width: 368px) {
+    #mitigations-header {
+        width: 170px!important;
+    }
 }

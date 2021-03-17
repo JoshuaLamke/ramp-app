@@ -1,0 +1,10 @@
+#audit-component-container {
+    border: 1px solid rgb(15, 128, 0);
+    box-shadow: 2px 2px 5px rgb(9, 66, 16);
+    background-color: rgb(41,163,129);
+    border-radius: 5px;
+}
+#more-info-alert-container {
+    background-color: rgb(41,163,129,0.4);
+    padding: 20px 2px;
+}

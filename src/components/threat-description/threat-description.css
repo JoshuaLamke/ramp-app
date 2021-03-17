@@ -7,6 +7,9 @@
     height: 0px;
     width: 0px;
     visibility: hidden;
+    display: none;
+    position: absolute;
+    bottom: 0px;
 }
 button {
     font-weight: bolder;
@@ -39,5 +42,10 @@ button {
     }
     #num-mitigations-number {
         position: unset!important;
+    }
+}
+@media Screen and (max-width: 368px) {
+    #num-mitigations {
+        width: auto!important;
     }
 }

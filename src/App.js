@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Threat from './components/threat-description/threat-description'
 import {useSelector} from 'react-redux'
 import './App.css'
+import CanvasJSReact from './canvasjs.react'
 import Routes from './routes'
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
       {threats.map((threat,index) => {
         return <Threat id='invisible' threatName={threat.name} key={threat.name}  numOfMitigations={threat.mitigationCount} mitigationNames={mitigationNames[index]} levels_={threat.initialLevels} mitigationLevels={mitigationLevels[index]}/>
       })}
-      <div className="d-flex justify-content-center flex-wrap px-3">
+      <div className="d-flex justify-content-center flex-wrap px-3 mt-5">
         (C) 2021 <a id="colvin-run-website-link" target="_blank" href="https://colvinrun.net/" className="px-2" style={{'color': 'rgb(32, 122, 97)'}}> Colvin Run Networks, Inc.</a>Notional data for demonstration purposes only.      
       </div>
     </div>

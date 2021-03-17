@@ -1,12 +1,14 @@
 import threatReducer from './threatReducer';
 import mitigationReducer from './mitigationReducer'
+import alertsReducer from './alertsReducer'
 import {combineReducers,createStore} from 'redux';
 import {persistReducer,persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 const allReducers = combineReducers({
     threatReducer,
-    mitigationReducer
+    mitigationReducer,
+    alertsReducer
 })
 
 const persistConfig = {

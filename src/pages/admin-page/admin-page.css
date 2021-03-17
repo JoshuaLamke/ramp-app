@@ -2,6 +2,7 @@
     background: rgb(32, 122, 97);
     transform: scale(1.1);
     transition: all 1s ease;
+    color: white;
 }
 #admin-back-button {
     background: rgb(41, 163, 129)
